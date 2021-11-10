@@ -1,26 +1,16 @@
 public class reverseString {
-    static void recursiveReverse(char[] str, int i)
-    {
-        int n = str.length;
-        if (i == n / 2)
-            return;
-        swap(str,i,n - i - 1);
-        recursiveReverse(str, i + 1);
-    }
-    static char[] swap(char []arr, int i, int j)
-    {
-        char temp= arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-        return arr;
-    }
+    public static void main(String[] args) {
+            String str = "abc";
+            String reversed = reverseString(str);
+            System.out.println("The reversed string is: " + reversed);
+            }
 
-    // Driver program
-    public static void main(String[] args)
+    public static String reverseString(String str)
     {
-        char[] str = "geeksforgeeks".toCharArray();
-        recursiveReverse(str,0);
-        System.out.println(String.valueOf(str));
-    }
+        if(str == null || str.length()<=1){
+            return str;
+        }
+
+        return reverseString(str.substring(1))+ str.charAt(0);
     }
 }

@@ -1,29 +1,38 @@
 import java.util.Arrays;
+
 public class Anagram {
 
-        public static void isAnagram(String str1, String str2) {
-            String s1 = str1.replaceAll("\\s", "");
-            String s2 = str2.replaceAll("\\s", "");
-            boolean status = true;
-            if (s1.length() != s2.length()) {
-                status = false;
-            } else {
-                char[] ArrayS1 = s1.toLowerCase().toCharArray();
-                char[] ArrayS2 = s2.toLowerCase().toCharArray();
-                Arrays.sort(ArrayS1);
-                Arrays.sort(ArrayS2);
-                status = Arrays.equals(ArrayS1, ArrayS2);
-            }
-            if (status) {
-                System.out.println(s1 + " and " + s2 + " are anagrams");
-            } else {
-                System.out.println(s1 + " and " + s2 + " are not anagrams");
-            }
+        public static boolean isAnagram(String str1, String str2) {
+//            String s1 = str1.replaceAll("\\s","");
+//            String s2 = str2.replaceAll("\\s", "");
+//
+//
+//            char[] array1 = s1.toLowerCase().toCharArray();
+//            char[] array2 = s2.toLowerCase().toCharArray();
+//            Arrays.sort(array1);
+//            Arrays.sort(array2);
+//
+//            boolean rs2 = Arrays.equals(array1,array2);
+//            return  rs2;
+
+            String str1_c = str1.replaceAll("\\s","");
+            String str2_c = str2.replaceAll("\\s","");
+
+            char[] array1 = str1_c.toLowerCase().toCharArray();
+            char[] array2 = str2_c.toLowerCase().toCharArray();
+
+            Arrays.sort(array1);
+            Arrays.sort(array2);
+            return Arrays.equals(array1,array2);
+
+
+
         }
 
         public static void main(String[] args) {
-            isAnagram("Keep", "Peek");
-            isAnagram("Mother In Law", "Hitler Woman");
+            System.out.println(isAnagram("Ke ep", "Peek"));
+
+            //isAnagram("Mother In Law", "Hitler Woman");
         }
 
 
